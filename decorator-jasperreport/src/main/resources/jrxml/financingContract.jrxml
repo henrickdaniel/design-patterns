@@ -1,11 +1,38 @@
 <!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
 <jasperReport name="Blank_A4" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2a9f45bf-9709-445b-a4f9-57f8b151f64b">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="proposalNumber" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
 	<query language="sql"><![CDATA[]]></query>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="491" splitType="Stretch">
 			<element kind="staticText" uuid="a0511e12-4b41-4beb-8bb9-3f8deb319aaa" x="0" y="0" width="555" height="31" fontSize="16.0" hTextAlign="Center">
 				<text><![CDATA[Financing contract]]></text>
+			</element>
+			<element kind="staticText" uuid="ab8c2d41-0b61-4df7-94f1-803f4607f3b5" x="0" y="31" width="120" height="20">
+				<text><![CDATA[proposal number:]]></text>
+			</element>
+			<element kind="textField" uuid="4de94c87-40a2-4810-a4ea-59252efdb092" x="120" y="31" width="151" height="20">
+				<expression><![CDATA[$P{proposalNumber}]]></expression>
+			</element>
+			<element kind="textField" uuid="8b7913c2-b11e-40ea-978e-5789a6eb4299" x="120" y="51" width="151" height="21">
+				<expression><![CDATA[$P{name}]]></expression>
+			</element>
+			<element kind="staticText" uuid="801593ef-cd5d-4825-819a-af4bb8664d20" x="0" y="100" width="555" height="390" hTextAlign="Justified">
+				<paragraph firstLineIndent="15"/>
+				<text><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis ultricies justo. Sed a erat lectus. Vestibulum eu neque viverra, egestas turpis eu, dapibus massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis aliquam porttitor odio id porta. In pharetra quam diam, eu tempor ante vulputate in. Donec porttitor mollis nisi, id sodales justo euismod sit amet.
+
+Quisque consequat ante ex, eu viverra massa pharetra sit amet. Mauris finibus risus at urna mollis ornare. In eget lobortis dui, vel dignissim nisl. Maecenas convallis sagittis erat, vel aliquet turpis dignissim nec. Cras tristique diam ex, eget elementum ligula porta id. Vivamus ut cursus felis, sed elementum turpis. Ut pharetra a lacus vel dapibus. Suspendisse volutpat vehicula tellus, ac rhoncus augue auctor id. Mauris in sollicitudin metus. Etiam vel enim sed purus tincidunt bibendum eu quis magna. Fusce mollis pharetra consectetur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi quis sapien iaculis, laoreet eros vitae, ultricies leo. Donec non eleifend risus. Nunc consectetur nisi varius felis accumsan, sed feugiat nulla lobortis. Quisque rhoncus ultrices massa, sit amet tempor mi finibus ut.
+
+Nam vitae suscipit purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce arcu velit, lobortis vel porttitor ut, tincidunt auctor quam. Nunc facilisis, mauris nec accumsan egestas, nisi justo imperdiet elit, a convallis tortor lacus id nunc. Suspendisse dapibus ipsum mi, vitae dignissim nunc porta vehicula. Pellentesque nunc felis, condimentum at aliquet at, viverra at lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam non turpis velit.
+
+Quisque interdum id erat ut suscipit. Curabitur feugiat orci posuere pulvinar sollicitudin. Nam orci eros, euismod vel aliquet egestas, iaculis eu sapien. Aenean volutpat quis tortor ut egestas. Pellentesque sem mi, hendrerit a tortor vel, mollis convallis enim. Aenean dictum, urna in hendrerit porttitor, augue felis sollicitudin lectus, a pretium elit nisl id ante. Nunc eget commodo odio, at facilisis enim. Fusce egestas, sapien malesuada pulvinar laoreet, sem mi hendrerit nibh, vitae lacinia lacus ex nec velit. Nulla tortor mi, consectetur sit amet velit vitae, volutpat vulputate justo. Suspendisse potenti.
+
+Sed interdum risus sit amet consectetur ultricies. Mauris nec varius lorem. Vestibulum egestas urna erat, vitae aliquet quam dapibus sed. Aenean euismod, lorem quis pharetra tempor, urna est dapibus justo, quis vehicula lacus risus et mauris. Sed a malesuada sapien. Nam lacinia odio vel tristique feugiat. Donec tincidunt quam at pellentesque sollicitudin. Nam fringilla mattis faucibus. Ut cursus elementum orci, condimentum laoreet purus tempor quis.]]></text>
+				<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+			</element>
+			<element kind="staticText" uuid="ea96f5ba-cbe1-4099-8be9-0c48c61c9c3c" x="0" y="51" width="120" height="20">
+				<text><![CDATA[name:]]></text>
 			</element>
 		</band>
 	</detail>

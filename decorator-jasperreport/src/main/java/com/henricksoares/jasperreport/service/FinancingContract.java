@@ -1,19 +1,22 @@
 package com.henricksoares.jasperreport.service;
 
-import net.sf.jasperreports.engine.*;
-import org.springframework.stereotype.Service;
+import com.henricksoares.jasperreport.model.ProposalDto;
 
-import java.io.FileNotFoundException;
 import java.util.HashMap;
-import java.util.Map;
 
-@Service
-public class FinancingContract implements Report{
+public class FinancingContract extends BaseDecorator {
 
     private static final String CONTRACT_JASPER = "classpath:jrxml/financingContract.jasper";
 
-    public byte[] generate() throws JRException, FileNotFoundException {
-        Map<String, Object> parameters = new HashMap<>();
-        return JasperService.buildPdfAsByteArray(CONTRACT_JASPER, parameters);
+    public FinancingContract(ProposalDto proposalDto) {
+        super(null, proposalDto);
+        this.JASPER_FILE_PATH = CONTRACT_JASPER;
+    }
+
+    public HashMap<String, Object> getParameters(ProposalDto proposalDto){
+        HashMap<String, Object> parameters = new HashMap<>();
+        parameters.put("proposalNumber", proposalDto.getProposalNumber());
+        parameters.put("name", proposalDto.getName());
+        return parameters;
     }
 }

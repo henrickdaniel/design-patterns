@@ -1,30 +1,25 @@
 package com.henricksoares.jasperreport.service;
 
-import net.sf.jasperreports.engine.JRException;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.IOException;
+import com.henricksoares.jasperreport.model.ProposalDto;
+import lombok.extern.slf4j.Slf4j;
+
+import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Map;
+@Slf4j
+public class InsuranceDecorator extends BaseDecorator{
 
-public class InsuranceDecorator implements Report{
+    private static final String INSURANCE_JASPER_FILE_PATH = "classpath:jrxml/insuranceContract.jasper";
 
-    @Autowired
-    private JasperService jasperService;
-    private Report baseReport;
-    private Map<String, Object> insuranceParameters;
-    private static final String INSURANCE_JASPER = "classpath:jrxml/insuranceContract.jasper";
-
-    public InsuranceDecorator(Report baseReport, Map<String, Object> insuranceParameters) {
-        this.baseReport = baseReport;
-        this.insuranceParameters = insuranceParameters;
+    public InsuranceDecorator(BaseDecorator baseReport) {
+        super(baseReport, baseReport.proposalDto);
+        this.JASPER_FILE_PATH = INSURANCE_JASPER_FILE_PATH;
     }
 
     @Override
-    public byte[] generate() throws JRException, IOException {
-        byte[] basePdfBytes = baseReport.generate();
-        return JasperService.mergePdfs(basePdfBytes, jasperService.buildPdfAsByteArray(INSURANCE_JASPER, new HashMap<>()));
+    public HashMap<String, Object> getParameters(ProposalDto proposalDto){
+        HashMap<String, Object> parameters = this.baseReport.getParameters(proposalDto);
+        parameters.put("insuranceClaimPayment", BigDecimal.valueOf(200000D));
+        return parameters;
     }
-
-
 }

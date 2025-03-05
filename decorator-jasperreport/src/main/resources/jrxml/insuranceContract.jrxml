@@ -1,11 +1,32 @@
 <!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
 <jasperReport name="Blank_A4" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2a9f45bf-9709-445b-a4f9-57f8b151f64b">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="proposalNumber" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="insuranceClaimPayment" class="java.math.BigDecimal"/>
 	<query language="sql"><![CDATA[]]></query>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="145" splitType="Stretch">
 			<element kind="staticText" uuid="a0511e12-4b41-4beb-8bb9-3f8deb319aaa" x="0" y="0" width="555" height="31" fontSize="16.0" hTextAlign="Center">
 				<text><![CDATA[Insurance contract]]></text>
+			</element>
+			<element kind="staticText" uuid="efd23391-3f2c-430d-a589-12d1f278fdc5" x="0" y="30" width="120" height="20">
+				<text><![CDATA[proposal number:]]></text>
+			</element>
+			<element kind="textField" uuid="c702e3a7-45ca-4e4c-810d-1a817092afa4" x="120" y="30" width="151" height="20">
+				<expression><![CDATA[$P{proposalNumber}]]></expression>
+			</element>
+			<element kind="textField" uuid="e417cd37-7425-44e3-a860-2a587a6d9552" x="120" y="50" width="270" height="21">
+				<expression><![CDATA[$P{name}]]></expression>
+			</element>
+			<element kind="staticText" uuid="8446fdda-eaa1-4e78-be40-59343017b3a9" x="0" y="50" width="120" height="20">
+				<text><![CDATA[name:]]></text>
+			</element>
+			<element kind="staticText" uuid="349f65bb-90ba-4efc-9651-565c68e27561" x="0" y="70" width="120" height="20">
+				<text><![CDATA[insurance claim payment:]]></text>
+			</element>
+			<element kind="textField" uuid="8b208f44-2629-44e1-a4a4-b05a8e1a5d97" x="120" y="70" width="270" height="20" pattern="¤#,##0.00;¤-#,##0.00" blankWhenNull="true">
+				<expression><![CDATA[$P{insuranceClaimPayment}]]></expression>
 			</element>
 		</band>
 	</detail>
