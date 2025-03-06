@@ -34,6 +34,9 @@ public class PaymentProtectionInsuranceDecorator extends BaseDecorator{
     }
 
     private Optional<InsuranceDto> findPaymentProtectionInsurance(){
+        if(this.proposalDto.getInsuranceDtos() == null || this.proposalDto.getInsuranceDtos().isEmpty()){
+            return Optional.empty();
+        }
         return this.proposalDto.getInsuranceDtos().stream().filter(insuranceDto -> insuranceDto != null && insuranceDto.getTypeOfInsurance() != null && insuranceDto.getTypeOfInsurance().equals(TypeOfInsurance.PAYMENT_PROTECTION_INSURANCE)).findFirst();
 
     }

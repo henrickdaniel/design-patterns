@@ -34,7 +34,10 @@ public class AutoInsuranceDecorator extends BaseDecorator{
     }
 
     private Optional<InsuranceDto> findAutoInsurance(){
-        return this.proposalDto.getInsuranceDtos().stream().filter(insuranceDto -> insuranceDto != null && insuranceDto.getTypeOfInsurance() != null && insuranceDto.getTypeOfInsurance().equals(TypeOfInsurance.AUTO_INSURANCE)).findFirst();
+        if(this.proposalDto.getInsuranceDtos() == null || this.proposalDto.getInsuranceDtos().isEmpty()){
+            return Optional.empty();
+        }
+        return  this.proposalDto.getInsuranceDtos().stream().filter(insuranceDto -> insuranceDto != null && insuranceDto.getTypeOfInsurance() != null && insuranceDto.getTypeOfInsurance().equals(TypeOfInsurance.AUTO_INSURANCE)).findFirst();
 
     }
 }
