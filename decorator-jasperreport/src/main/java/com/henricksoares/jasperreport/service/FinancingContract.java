@@ -19,4 +19,9 @@ public class FinancingContract extends BaseDecorator {
         parameters.put("name", proposalDto.getName());
         return parameters;
     }
+
+    @Override
+    public Boolean shouldProcess() {
+        return true;
+    }
 }

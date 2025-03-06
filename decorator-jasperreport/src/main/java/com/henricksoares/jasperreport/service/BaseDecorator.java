@@ -19,19 +19,26 @@ abstract class BaseDecorator implements Report{
         this.proposalDto = proposalDto;
     }
 
-    public byte[] generate(ProposalDto proposalDto) throws JRException, IOException {
+    public byte[] generate() throws JRException, IOException {
         log.info("Generating contract with JASPER_FILE_PATH {}", JASPER_FILE_PATH);
         if(baseReport == null){
             return JasperService.buildPdfAsByteArray(JASPER_FILE_PATH, getParameters(proposalDto));
         }
-        byte[] basePdfBytes = baseReport.generate(proposalDto);
-        return JasperService.mergePdfs(basePdfBytes, JasperService.buildPdfAsByteArray(JASPER_FILE_PATH, getParameters(proposalDto)));
+        byte[] basePdfBytes = baseReport.generate();
+        if(!shouldProcess()){
+            return basePdfBytes;
+        }
+        return (basePdfBytes == null) ? JasperService.buildPdfAsByteArray(JASPER_FILE_PATH, getParameters(proposalDto)) : JasperService.mergePdfs(basePdfBytes, JasperService.buildPdfAsByteArray(JASPER_FILE_PATH, getParameters(proposalDto)));
     }
 
-    public String generateAsString(ProposalDto proposalDto) throws JRException, IOException {
-        return JasperService.byteToBase64(generate(proposalDto));
+    public String generateAsString() throws JRException, IOException {
+        return JasperService.byteToBase64(generate());
     }
 
     public abstract HashMap<String, Object> getParameters(ProposalDto proposalDto);
+
+    public abstract Boolean shouldProcess();
+
+
 
 }

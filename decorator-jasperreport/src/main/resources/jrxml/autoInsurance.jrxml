@@ -8,7 +8,7 @@
 	<detail>
 		<band height="145" splitType="Stretch">
 			<element kind="staticText" uuid="a0511e12-4b41-4beb-8bb9-3f8deb319aaa" x="0" y="0" width="555" height="31" fontSize="16.0" hTextAlign="Center">
-				<text><![CDATA[Insurance contract]]></text>
+				<text><![CDATA[Auto insurance contract]]></text>
 			</element>
 			<element kind="staticText" uuid="efd23391-3f2c-430d-a589-12d1f278fdc5" x="0" y="30" width="120" height="20">
 				<text><![CDATA[proposal number:]]></text>
