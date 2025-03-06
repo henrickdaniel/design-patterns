@@ -17,7 +17,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class ContratService {
+public class ContractService  {
 
     public String generate() throws JRException, IOException {
 
